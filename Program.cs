@@ -17,11 +17,7 @@ builder.Services.AddOpenTelemetry()
             .AddHttpClientInstrumentation()
             .AddAspNetCoreInstrumentation()
             .AddConsoleExporter()
-            .AddJaegerExporter(o =>
-            {
-                o.Protocol = OpenTelemetry.Exporter.JaegerExportProtocol.HttpBinaryThrift;
-                
-            }));
+            .AddOtlpExporter());
 
 
 var app = builder.Build();
